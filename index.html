@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JavaScript Snake game</title>    
+<title>JavaScript Snake game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     body {
         margin: 0;
@@ -22,6 +23,7 @@
         flex-direction: column;
         align-items: center;
         border: 2px solid rgba(255,255,255,0.2);
+        max-width: 95vw;
     }
     h1 {
         color: #fff;
@@ -35,6 +37,11 @@
         box-shadow: 0 4px 24px #000a;
         border: 2px solid #fff2;
         margin-bottom: 16px;
+        width: 90vw;
+        max-width: 600px;
+        height: 90vw;
+        max-height: 600px;
+        touch-action: none;
     }
     .instructions {
         color: #eee;
@@ -43,13 +50,41 @@
         text-align: center;
         opacity: 0.8;
     }
+    .controls {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+    }
+    .controls button {
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        background: #232526;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px #0004;
+        transition: background 0.2s;
+    }
+    .controls button:active {
+        background: #414345;
+    }
 </style>
-
 <script src="snake.js"></script>
 </head>
-    
 <body onload="init();">
-   <center> <canvas id="myCanvas" width="600" height="600"></center>
-    </canvas>
+    <div class="game-container">
+        <h1>Snake Game</h1>
+        <canvas id="myCanvas" width="600" height="600"></canvas>
+        <div class="controls">
+            <button id="pauseBtn" onclick="pauseGame()">Pause</button>
+            <button id="continueBtn" onclick="continueGame()" style="display:none;">Continue</button>
+        </div>
+        <div class="instructions">
+            Use arrow keys or swipe to move.<br>
+            Eat apples to grow. Avoid walls and yourself!
+        </div>
+    </div>
 </body>
 </html>
+
