@@ -1,7 +1,4 @@
 
-// JavaScript Snake example
-// Author Jan Bodnar
-// http://zetcode.com/javascript/snake/
 
 var canvas;
 var ctx;
